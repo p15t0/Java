@@ -12,9 +12,9 @@ public class Main
  
 	public static void main(String[] args) {
 	    Scanner scan = new Scanner(System.in);
-	    int prim;
-        int seg;
-        int res;
+	    float prim = 0;
+        float seg = 0;
+        float res;
         int calc;
 	            
         do {
@@ -26,48 +26,38 @@ public class Main
             System.out.println("[0] Sair\n");
             calc = scan.nextInt();
             
+            if(calc > 0 && calc<5) {
+                System.out.println("\nDigite o primeiro número:");
+                prim = scan.nextFloat();
+                System.out.println("\nDigite o segundo número:");
+                seg = scan.nextFloat();
+            }
+            
             switch(calc) {
                 
             case 1:
-                System.out.println("\nDigite o primeiro número:");
-                prim = scan.nextInt();
-                System.out.println("\nDigite o segundo número:");
-                seg = scan.nextInt();
                 res = prim + seg;
-                System.out.printf("\n%d + %d = %d\n", prim, seg, res);
+                System.out.printf("\n%.2f + %.2f = %.2f\n", prim, seg, res);
                 break; 
             
             case 2:
-                System.out.println("\nDigite o primeiro número:");
-                prim = scan.nextInt();
-                System.out.println("\nDigite o segundo número:");
-                seg = scan.nextInt();                
                 res = prim - seg;
-                System.out.printf("\n%d - %d = %d\n", prim, seg, res);
+                System.out.printf("\n%.2f - %.2f = %.2f\n", prim, seg, res);
                 break;
                 
             case 3:
-                System.out.println("\nDigite o primeiro número:");
-                prim = scan.nextInt();
-                System.out.println("\nDigite o segundo número:");
-                seg = scan.nextInt();
                 res = prim * seg;
-                System.out.printf("\n%d * %d = %d\n", prim, seg, res);
+                System.out.printf("\n%.2f * %.2f = %.2f\n", prim, seg, res);
                 break;
                 
             case 4:
-                System.out.println("\nDigite o primeiro número:");
-                prim = scan.nextInt();
-                do {
-                    System.out.println("\nDigite o segundo número:");
+                while (seg == 0){
+                    System.out.println("\nImpossível dividir por 0");
+                    System.out.println("Digite o segundo número:");
                     seg = scan.nextInt();
-                    if (seg == 0) {
-                        System.out.println("\nImpossível dividir por 0");
-                    }
-                }
-                while (seg == 0);
+                };
                 res = prim / seg;
-                System.out.printf("\n%d / %d = %d\n", prim, seg, res);
+                System.out.printf("\n%.2f / %.2f = %.2f\n", prim, seg, res);
                 break;
                     
             case 0:
@@ -75,7 +65,7 @@ public class Main
                 break;
                 
             default:
-                System.out.println("\nInválido");
+                System.out.println("\nInválido, digite outro número");
                 break;
             }
         } 
